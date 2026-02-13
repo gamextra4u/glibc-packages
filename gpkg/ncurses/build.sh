@@ -7,7 +7,7 @@ _DATE_VERSION=20241102
 TERMUX_PKG_VERSION=${_PKG_VERSION}.${_DATE_VERSION}
 TERMUX_PKG_SRCURL=https://invisible-mirror.net/archives/ncurses/current/ncurses-${_PKG_VERSION}-${_DATE_VERSION}.tgz
 TERMUX_PKG_SHA256=f64b30378ced2c091b5517b0fe72ee5456d59b26b0e6783efc33ba58b25cf7b8
-TERMUX_PKG_DEPENDS="glibc, gcc-libs-glibc"
+TERMUX_PKG_DEPENDS="gcc-libs-glibc"
 TERMUX_PKG_BUILD_IN_SRC=true
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 --disable-root-access
