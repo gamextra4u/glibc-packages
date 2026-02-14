@@ -1,0 +1,35 @@
+diff -uNr ncurses-6.5-20250802/progs/tic.c ncurses-6.5-20250802.mod/progs/tic.c
+--- ncurses-6.5-20250802/progs/tic.c	2025-01-12 05:22:18.000000000 +0530
++++ ncurses-6.5-20250802.mod/progs/tic.c	2026-02-14 14:05:39.743903943 +0530
+@@ -390,7 +390,7 @@
+ {
+     FILE *result = NULL;
+ 
+-    _nc_STRCPY(filename, "/tmp/XXXXXX", PATH_MAX);
++    _nc_STRCPY(filename, "@TERMUX_PREFIX_CLASSICAL@/tmp/XXXXXX", PATH_MAX);
+ #if HAVE_MKSTEMP
+     {
+ 	int oldmask = (int) umask(077);
+@@ -923,7 +923,7 @@
+     } else {
+ 	if (infodump == TRUE) {
+ 	    /* captoinfo's no-argument case */
+-	    source_file = "/etc/termcap";
++	    source_file = "@TERMUX_PREFIX@/etc/termcap";
+ 	    if ((termcap = getenv("TERMCAP")) != NULL
+ 		&& (namelst = make_namelist(getenv("TERM"))) != NULL) {
+ 		if (access(termcap, F_OK) == 0) {
+diff -uNr ncurses-6.5-20250802/progs/tset.c ncurses-6.5-20250802.mod/progs/tset.c
+--- ncurses-6.5-20250802/progs/tset.c	2024-12-08 03:44:46.000000000 +0530
++++ ncurses-6.5-20250802.mod/progs/tset.c	2026-02-14 14:08:41.295903874 +0530
+@@ -579,8 +579,8 @@
+ 	    goto map;
+ 	}
+ #else
+-	if ((fp = fopen("/etc/ttytype", "r")) != 0
+-	    || (fp = fopen("/etc/ttys", "r")) != 0) {
++	if ((fp = fopen("@TERMUX_PREFIX@/etc/ttytype", "r")) != 0
++	    || (fp = fopen("@TERMUX_PREFIX@/etc/ttys", "r")) != 0) {
+ 	    char buffer[BUFSIZ];
+ 	    char *s, *t, *d;
+ 
